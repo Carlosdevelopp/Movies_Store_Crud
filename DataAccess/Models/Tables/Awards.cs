@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models.Tables
 {
-    internal class Awards
+    public class Awards
     {
+        public int AwardId { get; set; }    
+        public string AwardTitle { get; set;}
     }
 }

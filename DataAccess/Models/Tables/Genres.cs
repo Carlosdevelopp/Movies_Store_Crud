@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models.Tables
 {
-    internal class Genres
+    public class Genres
     {
+        public int GenreId { get; set; }    
+        public string Genre { get; set; }    
     }
 }
