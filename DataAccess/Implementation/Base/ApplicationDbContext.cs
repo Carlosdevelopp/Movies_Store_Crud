@@ -13,7 +13,9 @@ namespace DataAccess.Implementation.Base
         public ApplicationDbContext() { }
 
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
-        
+
+        public virtual DbSet<Movies> Movies { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) { }
     }
 }
