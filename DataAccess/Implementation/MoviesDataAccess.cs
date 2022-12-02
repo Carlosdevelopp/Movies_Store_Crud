@@ -1,4 +1,5 @@
-﻿using DataAccess.Implementation.Base;
+﻿using DataAccess.Contract;
+using DataAccess.Implementation.Base;
 using DataAccess.Models.Tables;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implementation
 {
-    public class MoviesDataAccess
+    public class MoviesDataAccess : IMoviesDataAccess
     {
         private readonly ApplicationDbContext _dbContext;
 

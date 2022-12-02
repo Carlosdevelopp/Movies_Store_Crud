@@ -8,6 +8,7 @@ namespace DataAccess.Models.Tables
 {
     public class Genres
     {
+        [key]
         public int GenreId { get; set; }    
         public string Genre { get; set; }    
     }
