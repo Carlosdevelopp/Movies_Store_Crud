@@ -16,7 +16,7 @@ namespace _MoviesStore.Controllers
         }
 
         #region GET
-        [HttpGet("GetMovie")]
+        [HttpGet("GetMovies")]
         public IActionResult GetMovies()
         {
             try
