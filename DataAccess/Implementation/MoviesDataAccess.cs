@@ -1,18 +1,14 @@
 ﻿using DataAccess.Contract;
 using DataAccess.Implementation.Base;
 using DataAccess.Models.Tables;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Implementation
 {
     public class MoviesDataAccess : IMoviesDataAccess
     {
         private readonly ApplicationDbContext _dbContext;
-
         public MoviesDataAccess(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -30,11 +26,19 @@ namespace DataAccess.Implementation
         #endregion
 
         #region POST
-
+        public void InsertMovie(Movies movie)
+        {
+            _dbContext.Movies.Add(movie);
+            _dbContext.SaveChanges();
+        }
         #endregion
 
         #region PUT
-
+        public void UpdateMovie(Movies movie)
+        {
+            _dbContext.Entry(movie).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+        }
         #endregion
 
         #region DELETE

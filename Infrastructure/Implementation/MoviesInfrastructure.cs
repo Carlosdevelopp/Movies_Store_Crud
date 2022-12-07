@@ -37,11 +37,34 @@ namespace Infrastructure.Implementation
         #endregion
 
         #region POST
+        public void InsertMovie(Movies movie)
+        {
+            Movies movies = new();
+            movie.Title = movie.Title;
+            movie.Description = movie.Description;
+            movie.Release = movie.Release;
+            movie.RunningTime = movie.RunningTime;
+            movie.GenreId = movie.GenreId;
+            movie.AwardId = movie.AwardId;
 
+            _moviesDA.InsertMovie(movie);
+        }
         #endregion
 
         #region PUT
+        public void UpdateMovie(Movies movie)
+        {
+            Movies movies = new();
+            movie.MovieId= movie.MovieId;   
+            movie.Title = movie.Title;
+            movie.Description = movie.Description;  
+            movie.Release = movie.Release;  
+            movie.RunningTime = movie.RunningTime;
+            movie.GenreId = movie.GenreId;   
+            movie.AwardId = movie.AwardId;
 
+            _moviesDA.UpdateMovie(movie);
+        }
         #endregion
 
         #region DELETE

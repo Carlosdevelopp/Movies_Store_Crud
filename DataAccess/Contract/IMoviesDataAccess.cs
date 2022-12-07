@@ -14,11 +14,11 @@ namespace DataAccess.Contract
         #endregion
 
         #region POST
-
+        void InsertMovie(Movies movie);
         #endregion
 
         #region PUT
-
+        void UpdateMovie(Movies movie);
         #endregion
 
         #region DELETE

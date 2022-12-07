@@ -31,11 +31,35 @@ namespace _MoviesStore.Controllers
         #endregion
 
         #region POST
-
+        [HttpPost("InsertMovie")]
+        public IActionResult InserMovie(Movies movie)
+        {
+            try
+            {
+                _moviesInfrastructure.InsertMovie(movie);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest("Record no inserted");
+            }
+        }
         #endregion
 
         #region PUT
-
+        [HttpPut("UpdateMovie")]
+        public IActionResult UpdateMovie(Movies movie)
+        {
+            try
+            {
+                _moviesInfrastructure.UpdateMovie(movie);   
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest("Registry not updated");
+            }
+        }
         #endregion
 
         #region DELETE

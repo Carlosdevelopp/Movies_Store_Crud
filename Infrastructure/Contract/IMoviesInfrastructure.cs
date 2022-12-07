@@ -14,11 +14,11 @@ namespace Infrastructure.Contract
         #endregion
 
         #region POST
-
+        void InsertMovie(Movies movies);
         #endregion
 
         #region PUT
-
+        void UpdateMovie(Movies movie);
         #endregion
 
         #region DELETE
