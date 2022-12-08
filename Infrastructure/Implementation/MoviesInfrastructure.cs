@@ -68,7 +68,10 @@ namespace Infrastructure.Implementation
         #endregion
 
         #region DELETE
-
+        public void DeleteMovie(int movieId)
+        {
+            _moviesDA.DeleteMovie(movieId);
+        }
         #endregion
     }
 }

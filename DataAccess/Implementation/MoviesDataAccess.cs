@@ -42,7 +42,15 @@ namespace DataAccess.Implementation
         #endregion
 
         #region DELETE
+        public void DeleteMovie(int movieId)
+        {
+            Movies movies = (from m in _dbContext.Movies
+                             where m.MovieId == movieId
+                             select m).FirstOrDefault();
 
+            _dbContext.Movies.Remove(movies);
+            _dbContext.SaveChanges();
+        }
         #endregion
     }
 }
