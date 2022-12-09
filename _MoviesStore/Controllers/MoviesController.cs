@@ -16,6 +16,19 @@ namespace _MoviesStore.Controllers
         }
 
         #region GET
+        [HttpGet("GetMovie")]
+        public IActionResult GetMovie(int movieId)
+        {
+            try
+            {
+                return Ok(_moviesInfrastructure.GetMovie(movieId));
+            }
+            catch (Exception)
+            {
+                return BadRequest("Server internal error");
+            }
+        }
+
         [HttpGet("GetMovies")]
         public IActionResult GetMovies()
         {

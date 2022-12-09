@@ -10,6 +10,7 @@ namespace Infrastructure.Contract
     public interface IMoviesInfrastructure
     {
         #region GET
+        Movies GetMovie(int movieId);
         List<Movies> GetMovies();
         #endregion
 

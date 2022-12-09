@@ -19,6 +19,12 @@ namespace Infrastructure.Implementation
         }
 
         #region GET
+        public Movies GetMovie(int movieId)
+        {
+            Movies movie = _moviesDA.GetMovie(movieId);
+
+            return movie;
+        }
         public List<Movies> GetMovies()
         {
             List<Movies> Movies = _moviesDA.GetMovies();

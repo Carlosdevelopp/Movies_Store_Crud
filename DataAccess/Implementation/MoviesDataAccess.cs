@@ -2,13 +2,13 @@
 using DataAccess.Implementation.Base;
 using DataAccess.Models.Tables;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace DataAccess.Implementation
 {
     public class MoviesDataAccess : IMoviesDataAccess
     {
         private readonly ApplicationDbContext _dbContext;
+
         public MoviesDataAccess(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;

@@ -11,6 +11,7 @@ namespace DataAccess.Contract
     public interface IMoviesDataAccess
     {
         #region GET
+        Movies GetMovie(int movieId);
         List<Movies> GetMovies();
         #endregion
 
