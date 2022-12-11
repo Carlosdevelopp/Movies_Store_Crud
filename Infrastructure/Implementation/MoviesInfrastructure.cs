@@ -1,6 +1,7 @@
 ﻿using DataAccess.Contract;
 using DataAccess.Models.Tables;
 using Infrastructure.Contract;
+using Infrastructure.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace Infrastructure.Implementation
         #region GET
         public Movies GetMovie(int movieId)
         {
+
+
             Movies movie = _moviesDA.GetMovie(movieId);
 
             return movie;
@@ -32,6 +35,7 @@ namespace Infrastructure.Implementation
             List<Movies> movies = (from u in Movies
                                    select new Movies
                                    {
+                                       MovieId = u.MovieId,
                                        Description = u.Description,
                                        Title = u.Title,
                                        Release = u.Release,
@@ -39,6 +43,34 @@ namespace Infrastructure.Implementation
                                    }).ToList();
 
             return movies;
+        }
+        public AwardsDTO GetMovieDetails(int movieId)
+        {
+            Movies movie = _moviesDA.GetMovieDetails(movieId);
+
+            AwardsDTO _awardsDTO = new AwardsDTO
+            {
+                TitleMovie = movie.Title,
+                DescriptionMovie = movie.Description
+            };
+
+            return _awardsDTO;
+        }
+        public List<Movies> GetMoviesDetails()
+        {
+            List<Movies> movies = _moviesDA.GetMoviesDetails();
+
+            List<Movies> _movies = (from u in movies
+                                    select new Movies
+                                    {
+                                        MovieId = u.MovieId,
+                                        Description = u.Description,
+                                        Title = u.Title,
+                                        Release = u.Release,
+                                        RunningTime = u.RunningTime,
+                                    }).ToList();
+
+            return _movies;
         }
         #endregion
 

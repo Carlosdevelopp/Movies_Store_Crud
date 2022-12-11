@@ -1,4 +1,6 @@
 ﻿using DataAccess.Models.Tables;
+using Infrastructure.DTO;
+
 namespace Infrastructure.Contract
 {
     public interface IMoviesInfrastructure
@@ -6,6 +8,8 @@ namespace Infrastructure.Contract
         #region GET
         Movies GetMovie(int movieId);
         List<Movies> GetMovies();
+        AwardsDTO GetMovieDetails(int movieId);
+        List<Movies> GetMoviesDetails();
         #endregion
 
         #region POST

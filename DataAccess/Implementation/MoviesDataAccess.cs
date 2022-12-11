@@ -24,7 +24,6 @@ namespace DataAccess.Implementation
 
             return movies;
         }
-
         //Obtener todos los registros
         public List<Movies> GetMovies()
         {
@@ -32,6 +31,28 @@ namespace DataAccess.Implementation
                                    select u).ToList();
 
             return Movies;
+        }
+        //Obtener Detalles de un registro
+        public Movies GetMovieDetails(int movieId)
+        {
+            Movies movies = (from m in _dbContext.Movies
+                             where m.MovieId == movieId
+                             select m).Include(X => X.Genres)
+                                      .Include(X => X.Awards)
+                                      .FirstOrDefault();
+
+            movies.Genres.Movies = null;
+            return movies;
+        }
+        //Obtener Detalles de todos los registrs
+        public List<Movies> GetMoviesDetails()
+        {
+            List<Movies> movies = (from u in _dbContext.Movies
+                                   select u).Include(x => x.Genres)
+                                            .Include(x => x.Awards)
+                                            .ToList();
+
+            return movies;
         }
         #endregion
 

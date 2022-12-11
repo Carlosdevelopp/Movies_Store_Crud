@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Contract\" />
-    <Folder Include="DTO\" />
   </ItemGroup>
 
   <ItemGroup>
