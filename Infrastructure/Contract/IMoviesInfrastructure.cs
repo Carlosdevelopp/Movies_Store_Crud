@@ -6,8 +6,8 @@ namespace Infrastructure.Contract
     public interface IMoviesInfrastructure
     {
         #region GET
-        Movies GetMovie(int movieId);
-        List<Movies> GetMovies();
+        MoviesDTO GetMovie(int movieId);
+        List<MoviesDTO> GetMovies();
         AwardsDTO GetMovieDetails(int movieId);
         List<Movies> GetMoviesDetails();
         #endregion

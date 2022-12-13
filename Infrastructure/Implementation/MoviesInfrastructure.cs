@@ -20,29 +20,35 @@ namespace Infrastructure.Implementation
         }
 
         #region GET
-        public Movies GetMovie(int movieId)
+        public MoviesDTO GetMovie(int movieId)
         {
-
-
             Movies movie = _moviesDA.GetMovie(movieId);
 
-            return movie;
+            MoviesDTO moviesDTO = new MoviesDTO
+            {
+                TitleMovie = movie.Title,
+                DescriptionMovie = movie.Description,
+                RunningTimeMovie = movie.RunningTime,
+                ReleaseMovie = movie.Release,
+                GenreMovie = movie.GenreId
+            };
+
+            return moviesDTO;
         }
-        public List<Movies> GetMovies()
+        public List<MoviesDTO> GetMovies()
         {
             List<Movies> Movies = _moviesDA.GetMovies();
 
-            List<Movies> movies = (from u in Movies
-                                   select new Movies
+            List<MoviesDTO> moviesDTO = (from u in Movies
+                                   select new MoviesDTO
                                    {
-                                       MovieId = u.MovieId,
-                                       Description = u.Description,
-                                       Title = u.Title,
-                                       Release = u.Release,
-                                       RunningTime = u.RunningTime,
+                                       TitleMovie = u.Title,
+                                       DescriptionMovie = u.Description,
+                                       ReleaseMovie = u.Release,
+                                       RunningTimeMovie = u.RunningTime,
                                    }).ToList();
 
-            return movies;
+            return moviesDTO;
         }
         public AwardsDTO GetMovieDetails(int movieId)
         {
