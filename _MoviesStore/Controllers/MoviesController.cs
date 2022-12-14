@@ -1,5 +1,6 @@
 ﻿using DataAccess.Models.Tables;
 using Infrastructure.Contract;
+using Infrastructure.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _MoviesStore.Controllers
@@ -71,11 +72,11 @@ namespace _MoviesStore.Controllers
 
         #region POST
         [HttpPost("InsertMovie")]
-        public IActionResult InserMovie(Movies movie)
+        public IActionResult InserMovie(MoviesInsertDTO movieDTO)
         {
             try
             {
-                _moviesInfrastructure.InsertMovie(movie);
+                _moviesInfrastructure.InsertMovie(movieDTO);
                 return Ok();
             }
             catch (Exception)
@@ -87,11 +88,11 @@ namespace _MoviesStore.Controllers
 
         #region PUT
         [HttpPut("UpdateMovie")]
-        public IActionResult UpdateMovie(Movies movie)
+        public IActionResult UpdateMovie(MoviesUpdateDTO movieDTO)
         {
             try
             {
-                _moviesInfrastructure.UpdateMovie(movie);   
+                _moviesInfrastructure.UpdateMovie(movieDTO);   
                 return Ok();
             }
             catch (Exception)

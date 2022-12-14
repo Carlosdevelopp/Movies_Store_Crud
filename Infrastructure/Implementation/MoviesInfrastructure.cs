@@ -81,31 +81,27 @@ namespace Infrastructure.Implementation
         #endregion
 
         #region POST
-        public void InsertMovie(Movies movie)
+        public void InsertMovie(MoviesInsertDTO movieDTO)
         {
-            Movies movies = new();
-            movie.Title = movie.Title;
-            movie.Description = movie.Description;
-            movie.Release = movie.Release;
-            movie.RunningTime = movie.RunningTime;
-            movie.GenreId = movie.GenreId;
-            movie.AwardId = movie.AwardId;
+            Movies movie = new();
+            movie.Title = movieDTO.TitleMovie;
+            movie.Description = movieDTO.DescriptionMovie;
+            movie.Release = movieDTO.ReleaseMovie;
+            movie.RunningTime = movieDTO.RunnigTimeMovie;
 
             _moviesDA.InsertMovie(movie);
         }
+
         #endregion
 
         #region PUT
-        public void UpdateMovie(Movies movie)
+        public void UpdateMovie(MoviesUpdateDTO movieDTO)
         {
-            Movies movies = new();
-            movie.MovieId= movie.MovieId;   
-            movie.Title = movie.Title;
-            movie.Description = movie.Description;  
-            movie.Release = movie.Release;  
-            movie.RunningTime = movie.RunningTime;
-            movie.GenreId = movie.GenreId;   
-            movie.AwardId = movie.AwardId;
+            Movies movie = new();   
+            movie.Title = movieDTO.TitleMovie;
+            movie.Description = movieDTO.DescriptionMovie;  
+            movie.Release = movieDTO.ReleaseMovie;  
+            movie.RunningTime = movieDTO.RunningTimeMovie;
 
             _moviesDA.UpdateMovie(movie);
         }
