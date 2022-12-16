@@ -2,6 +2,7 @@
 using DataAccess.Models.Tables;
 using Infrastructure.Contract;
 using Infrastructure.DTO;
+using Infrastructure.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,8 @@ namespace Infrastructure.Implementation
 
             MoviesDTO moviesDTO = new MoviesDTO
             {
-                TitleMovie = movie.Title,
-                DescriptionMovie = movie.Description,
+                TitleMovie = movie.Title.FormatTitle(),
+                DescriptionMovie = movie.Description.TextUpperCase(),
                 RunningTimeMovie = movie.RunningTime,
                 ReleaseMovie = movie.Release,
                 GenreMovie = movie.GenreId

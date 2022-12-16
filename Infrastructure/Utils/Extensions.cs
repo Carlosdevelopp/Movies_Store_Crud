@@ -1,13 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Infrastructure.Utils
+﻿namespace Infrastructure.Utils
 {
-    public class Extensions
+    public static class Extensions
     {
-        public static 
+        public static string FormatTitle(this string text)
+        {
+            if (text.Contains(""))
+            {
+                text = text.Replace(text, $"*{text}*");
+            }
+
+            return text;
+        }
+
+        public static string TextUpperCase(this string text)
+        {
+            if (text.Contains(""))
+            {
+                text = text.Replace(text, $"{text.ToUpper()}");
+            }
+
+            return text;
+        }
     }
 }
