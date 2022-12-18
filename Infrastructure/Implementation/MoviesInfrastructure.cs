@@ -27,8 +27,8 @@ namespace Infrastructure.Implementation
 
             MoviesDTO moviesDTO = new MoviesDTO
             {
-                TitleMovie = movie.Title.FormatTitle(),
-                DescriptionMovie = movie.Description.TextUpperCase(),
+                TitleMovie = movie.Title,
+                DescriptionMovie = movie.Description,
                 RunningTimeMovie = movie.RunningTime,
                 ReleaseMovie = movie.Release,
                 GenreMovie = movie.GenreId
@@ -57,8 +57,10 @@ namespace Infrastructure.Implementation
 
             AwardsDTO _awardsDTO = new AwardsDTO
             {
-                TitleMovie = movie.Title,
-                DescriptionMovie = movie.Description
+                TitleMovie = movie.Title.FormatTitle(),
+                DescriptionMovie = movie.Description.TextUpperCase(),
+                ReleaseShortMovie = movie.Release.ToShortDate(),
+                RunningTimeMovie = movie.RunningTime.FormatTime()
             };
 
             return _awardsDTO;
