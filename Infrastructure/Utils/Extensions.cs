@@ -33,5 +33,15 @@
         {
             return string.Format($"#{date}");
         }
+
+        public static string AwardText(this string text)
+        {
+            if (text.Contains(""))
+            {
+                text = text.Replace(text, $"Award: {text.ToUpper()}");
+            }
+
+            return text;
+        }
     }
 }

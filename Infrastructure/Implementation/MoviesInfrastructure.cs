@@ -60,7 +60,9 @@ namespace Infrastructure.Implementation
                 TitleMovie = movie.Title.FormatTitle(),
                 DescriptionMovie = movie.Description.TextUpperCase(),
                 ReleaseShortMovie = movie.Release.ToShortDate(),
-                RunningTimeMovie = movie.RunningTime.FormatTime()
+                RunningTimeMovie = movie.RunningTime.FormatTime(),
+                Genre = movie.Genres.Genre.ToLower(),
+                Award = movie.Awards.AwardTitle.AwardText()
             };
 
             return _awardsDTO;
@@ -94,7 +96,6 @@ namespace Infrastructure.Implementation
 
             _moviesDA.InsertMovie(movie);
         }
-
         #endregion
 
         #region PUT

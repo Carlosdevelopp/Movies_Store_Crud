@@ -12,5 +12,7 @@ namespace Infrastructure.DTO
         public string DescriptionMovie { get; set; }
         public string ReleaseShortMovie { get; set; }
         public string RunningTimeMovie { get; set; } 
+        public string Genre { get; set; }   
+        public string Award { get; set; }
     }
 }
