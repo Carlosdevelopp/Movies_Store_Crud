@@ -30,26 +30,35 @@ namespace Infrastructure.Implementation
                 TitleMovie = movie.Title,
                 DescriptionMovie = movie.Description,
                 RunningTimeMovie = movie.RunningTime,
-                ReleaseMovie = movie.Release,
-                GenreMovie = movie.GenreId
+                ReleaseMovie = movie.Release
             };
 
             return moviesDTO;
         }
         public List<MoviesDTO> GetMovies()
         {
-            List<Movies> Movies = _moviesDA.GetMovies();
+            List<Movies> movies = _moviesDA.GetMovies();
 
-            List<MoviesDTO> moviesDTO = (from u in Movies
-                                   select new MoviesDTO
-                                   {
-                                       TitleMovie = u.Title,
-                                       DescriptionMovie = u.Description,
-                                       ReleaseMovie = u.Release,
-                                       RunningTimeMovie = u.RunningTime,
-                                   }).ToList();
+            //Syntax
+            //List<MoviesDTO> moviesDTO = (from u in movies
+            //                       select new MoviesDTO
+            //                       {
+            //                           TitleMovie = u.Title,
+            //                           DescriptionMovie = u.Description,
+            //                           ReleaseMovie = u.Release,
+            //                           RunningTimeMovie = u.RunningTime,
+            //                       }).ToList();
 
-            return moviesDTO;
+            //Method
+            List<MoviesDTO> moviesDTO_method = movies.Select(u => new MoviesDTO
+            {
+                TitleMovie = u.Title,
+                DescriptionMovie = u.Description,   
+                ReleaseMovie = u.Release,
+                RunningTimeMovie = u.RunningTime,
+            }).ToList();
+
+            return moviesDTO_method;
         }
         public AwardsDTO GetMovieDetails(int movieId)
         {
@@ -67,18 +76,19 @@ namespace Infrastructure.Implementation
 
             return _awardsDTO;
         }
-        public List<Movies> GetMoviesDetails()
+        public List<AwardsDTO> GetMoviesDetails()
         {
             List<Movies> movies = _moviesDA.GetMoviesDetails();
 
-            List<Movies> _movies = (from u in movies
-                                    select new Movies
+            List<AwardsDTO> _movies = (from u in movies
+                                    select new AwardsDTO
                                     {
-                                        MovieId = u.MovieId,
-                                        Description = u.Description,
-                                        Title = u.Title,
-                                        Release = u.Release,
-                                        RunningTime = u.RunningTime,
+                                        TitleMovie = u.Title.FormatTitle(),
+                                        DescriptionMovie = u.Description.TextUpperCase(),
+                                        ReleaseShortMovie = u.Release.ToShortDate(),
+                                        RunningTimeMovie = u.RunningTime.FormatTime(),
+                                        Genre = u.Genres.Genre.ToLower(),
+                                        Award = u.Awards.AwardTitle.AwardText()
                                     }).ToList();
 
             return _movies;

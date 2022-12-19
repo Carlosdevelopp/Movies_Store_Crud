@@ -15,7 +15,7 @@ namespace DataAccess.Implementation
         }
 
         #region GET
-        //Obtener un registro
+        //Get a record
         public Movies GetMovie(int movieId)
         {
             Movies movies = (from m in _dbContext.Movies
@@ -24,7 +24,8 @@ namespace DataAccess.Implementation
 
             return movies;
         }
-        //Obtener todos los registros
+
+        //Get all records
         public List<Movies> GetMovies()
         {
             List<Movies> Movies = (from u in _dbContext.Movies
@@ -32,7 +33,8 @@ namespace DataAccess.Implementation
 
             return Movies;
         }
-        //Obtener Detalles de un registro
+
+        //Get details of a record
         public Movies GetMovieDetails(int movieId)
         {
             Movies movies = (from m in _dbContext.Movies
@@ -44,7 +46,8 @@ namespace DataAccess.Implementation
             movies.Genres.Movies = null;
             return movies;
         }
-        //Obtener Detalles de todos los registrs
+
+        //Get details of all records
         public List<Movies> GetMoviesDetails()
         {
             List<Movies> movies = (from u in _dbContext.Movies
@@ -57,6 +60,7 @@ namespace DataAccess.Implementation
         #endregion
 
         #region POST
+        //Insert a record
         public void InsertMovie(Movies movie)
         {
             _dbContext.Movies.Add(movie);
@@ -65,6 +69,7 @@ namespace DataAccess.Implementation
         #endregion
 
         #region PUT
+        //Update a record
         public void UpdateMovie(Movies movie)
         {
             _dbContext.Entry(movie).State = EntityState.Modified;
@@ -73,6 +78,7 @@ namespace DataAccess.Implementation
         #endregion
 
         #region DELETE
+        //Delete a record
         public void DeleteMovie(int movieId)
         {
             Movies movies = (from m in _dbContext.Movies
