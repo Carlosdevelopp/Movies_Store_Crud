@@ -1,5 +1,4 @@
-﻿using DataAccess.Models.Tables;
-using Infrastructure.Contract;
+﻿using Infrastructure.Contract;
 using Infrastructure.DTO;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +16,13 @@ namespace _MoviesStore.Controllers
         }
 
         #region GET
+        /// <summary>
+        /// Gets movie by id
+        /// </summary>
+        /// <param name="movieId">Integer with id movie</param>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <returns></returns>
         [HttpGet("GetMovie")]
         public IActionResult GetMovie(int movieId)
         {
