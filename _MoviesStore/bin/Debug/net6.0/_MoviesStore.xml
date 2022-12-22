@@ -8,9 +8,9 @@
             <summary>
             Gets movie by id
             </summary>
-            <param name="movieId"> Integer with id movie</param>
-            <response code="200"> Succesfull operation and return movie object</response>
-            <response code="400"> An error ocurred on the server.</response>
+            <param name="movieId">Integer with id movie</param>
+            <response code="200">Succesfull operation and return movie object</response>
+            <response code="400">An error ocurred on the server.</response>
             <returns></returns>
         </member>
     </members>
