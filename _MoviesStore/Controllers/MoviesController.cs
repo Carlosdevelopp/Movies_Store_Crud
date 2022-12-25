@@ -4,9 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace _MoviesStore.Controllers
 {
+
+    [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
-    [ApiController]
     public class MoviesController : ControllerBase
     {
         private readonly IMoviesInfrastructure _moviesInfrastructure;
@@ -26,13 +27,13 @@ namespace _MoviesStore.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     POST /Todo
+        ///     GET /one
         ///     {
-        ///       "titleMovie": "",
-        ///       "descriptionMovie": "",
-        ///       "runningTimeMovie": #,
-        ///       "releaseMovie": "",
-        ///       "genreMovie": #
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "runningTimeMovie": 0,
+        ///       "releaseMovie": datetime,
+        ///       "genreMovie": 0
         ///     }
         ///
         /// </remarks>
@@ -55,6 +56,19 @@ namespace _MoviesStore.Controllers
         /// </summary>
         /// <response code="200">Succesfull operation and return movie object</response>
         /// <response code="400">An error ocurred on the server.</response>
+        /// /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /all
+        ///     {
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "runningTimeMovie": 0,
+        ///       "releaseMovie": datetime,
+        ///       "genreMovie": 0
+        ///     }
+        ///
+        /// </remarks>
         /// <returns></returns>
         [HttpGet("GetMovies")]
         public IActionResult GetMovies()
@@ -69,7 +83,26 @@ namespace _MoviesStore.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Gets movieDetails by id
+        /// </summary>
+        /// <param name="movieId">Integer with id movie</param>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /one
+        ///     {  
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "runningTimeMovie": string,
+        ///       "releaseMovie": "string",
+        ///       "genreMovie": string
+        ///     }
+        ///
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet("GetMovieDetails")]
         public IActionResult GetMovieDetails(int movieId)
         {
@@ -83,6 +116,26 @@ namespace _MoviesStore.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets moviesDetails list
+        /// </summary>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /all
+        ///     {
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "releaseShortMovie": "string",
+        ///       "runningTimeMovie": "string",
+        ///       "genre": "string",
+        ///       "award": "string"
+        ///     }
+        ///
+        /// </remarks>
+        /// <returns></returns>
         [HttpGet("GetMoviesDetails")]
         public IActionResult GetMoviesDetails()
         {
@@ -97,6 +150,24 @@ namespace _MoviesStore.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Insert a record
+        /// </summary>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /one
+        ///     {
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "releaseShortMovie": 0,
+        ///       "runningTimeMovie": datetime
+        ///     }
+        ///
+        /// </remarks>
+        /// <returns></returns>
         #region POST
         [HttpPost("InsertMovie")]
         public IActionResult InserMovie(MoviesInsertDTO movieDTO)
@@ -113,6 +184,24 @@ namespace _MoviesStore.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Update a record
+        /// </summary>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     PUT /one
+        ///     {
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "releaseShortMovie": 0,
+        ///       "runningTimeMovie": datetime
+        ///     }
+        ///
+        /// </remarks>
+        /// <returns></returns>
         #region PUT
         [HttpPut("UpdateMovie")]
         public IActionResult UpdateMovie(MoviesUpdateDTO movieDTO)
@@ -129,6 +218,24 @@ namespace _MoviesStore.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Delete a record
+        /// </summary>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     DELETE /one
+        ///     {
+        ///       "titleMovie": "string",
+        ///       "descriptionMovie": "string",
+        ///       "releaseShortMovie": 0,
+        ///       "runningTimeMovie": datetime
+        ///     }
+        ///
+        /// </remarks>
+        /// <returns></returns>
         #region DELETE
         [HttpDelete("DeleteMovie")]
         public IActionResult DeleteMovie(int movieId)
