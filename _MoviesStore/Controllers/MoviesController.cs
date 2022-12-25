@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace _MoviesStore.Controllers
 {
     [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
     public class MoviesController : ControllerBase
     {
@@ -22,6 +23,19 @@ namespace _MoviesStore.Controllers
         /// <param name="movieId">Integer with id movie</param>
         /// <response code="200">Succesfull operation and return movie object</response>
         /// <response code="400">An error ocurred on the server.</response>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///       "titleMovie": "",
+        ///       "descriptionMovie": "",
+        ///       "runningTimeMovie": #,
+        ///       "releaseMovie": "",
+        ///       "genreMovie": #
+        ///     }
+        ///
+        /// </remarks>
         /// <returns></returns>
         [HttpGet("GetMovie")]
         public IActionResult GetMovie(int movieId)
@@ -36,6 +50,12 @@ namespace _MoviesStore.Controllers
             }
         }
 
+        /// <summary>
+        /// Get movie list
+        /// </summary>
+        /// <response code="200">Succesfull operation and return movie object</response>
+        /// <response code="400">An error ocurred on the server.</response>
+        /// <returns></returns>
         [HttpGet("GetMovies")]
         public IActionResult GetMovies()
         {
@@ -48,6 +68,7 @@ namespace _MoviesStore.Controllers
                 return BadRequest("Server internal error");
             }
         }
+
 
         [HttpGet("GetMovieDetails")]
         public IActionResult GetMovieDetails(int movieId)
