@@ -1,7 +1,10 @@
+using AutoMapper;
 using DataAccess.Contract;
 using DataAccess.Implementation;
 using DataAccess.Implementation.Base;
+using DataAccess.Models.Tables;
 using Infrastructure.Contract;
+using Infrastructure.DTO;
 using Infrastructure.Implementation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -38,6 +41,17 @@ builder.Services.AddSwaggerGen(options =>
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
+
+var mappingConfig = new MapperConfiguration(mc =>
+{
+    mc.CreateMap<Movies, MoviesDTO>()
+      .ForMember(p => p.TitleMovie, org => org.MapFrom(p => p.Title.ToUpper()))
+      .ForMember(p => p.DescriptionMovie, org => org.MapFrom(p => p.Description.ToLower()));
+
+});
+
+IMapper mapper = mappingConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 //Inyección de dependencias
 builder.Services.AddScoped<IMoviesInfrastructure, MoviesInfrastructure>();

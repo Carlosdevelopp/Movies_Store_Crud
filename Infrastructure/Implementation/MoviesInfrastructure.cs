@@ -1,26 +1,35 @@
-﻿using DataAccess.Contract;
+﻿using AutoMapper;
+using DataAccess.Contract;
 using DataAccess.Models.Tables;
 using Infrastructure.Contract;
 using Infrastructure.DTO;
 using Infrastructure.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Implementation
 {
     public class MoviesInfrastructure :IMoviesInfrastructure
     {
         private readonly IMoviesDataAccess _moviesDA;
+        private readonly IMapper _mapper;
 
-        public MoviesInfrastructure(IMoviesDataAccess moviesDataAccess) 
+        public MoviesInfrastructure(IMoviesDataAccess moviesDataAccess, IMapper mapper)
         {
             _moviesDA = moviesDataAccess;
+            _mapper = mapper;
         }
 
         #region GET
+        //Get a reord wearing AutoMapper
+        public MoviesDTO _GetMovie(int movieId)
+        {
+            Movies movie = _moviesDA.GetMovie(movieId);
+
+            MoviesDTO moviesDTO = _mapper.Map<MoviesDTO>(movie);
+
+            return moviesDTO;
+        }
+
+       //Get a record 
         public MoviesDTO GetMovie(int movieId)
         {
             Movies movie = _moviesDA.GetMovie(movieId);
@@ -35,6 +44,8 @@ namespace Infrastructure.Implementation
 
             return moviesDTO;
         }
+
+        //Get all  
         public List<MoviesDTO> GetMovies()
         {
             List<Movies> movies = _moviesDA.GetMovies();
@@ -60,6 +71,8 @@ namespace Infrastructure.Implementation
 
             return moviesDTO_method;
         }
+
+        //Get details of a record
         public AwardsDTO GetMovieDetails(int movieId)
         {
             Movies movie = _moviesDA.GetMovieDetails(movieId);
@@ -76,6 +89,8 @@ namespace Infrastructure.Implementation
 
             return _awardsDTO;
         }
+
+        //Get details of all records
         public List<AwardsDTO> GetMoviesDetails()
         {
             List<Movies> movies = _moviesDA.GetMoviesDetails();

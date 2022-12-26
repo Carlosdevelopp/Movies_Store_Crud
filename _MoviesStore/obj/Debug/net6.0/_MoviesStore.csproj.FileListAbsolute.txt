@@ -69,3 +69,4 @@ C:\Users\carlo\source\repos\_MoviesStore\_MoviesStore\obj\Debug\net6.0\_MoviesSt
 C:\Users\carlo\source\repos\_MoviesStore\_MoviesStore\obj\Debug\net6.0\_MoviesStore.genruntimeconfig.cache
 C:\Users\carlo\source\repos\_MoviesStore\_MoviesStore\obj\Debug\net6.0\ref\_MoviesStore.dll
 C:\Users\carlo\source\repos\_MoviesStore\_MoviesStore\obj\Debug\net6.0\_MoviesStore.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\carlo\source\repos\_MoviesStore\_MoviesStore\bin\Debug\net6.0\AutoMapper.dll

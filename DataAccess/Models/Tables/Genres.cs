@@ -11,8 +11,8 @@ namespace DataAccess.Models.Tables
     {
         [Key]
         public int GenreId { get; set; }
-        public string? Genre { get; set; } 
+        public string Genre { get; set; } 
 
-        public virtual ICollection<Movies>? Movies { get; set; } 
+        public virtual ICollection<Movies> Movies { get; set; } 
     }
 }

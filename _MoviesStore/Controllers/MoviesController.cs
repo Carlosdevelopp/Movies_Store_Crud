@@ -1,13 +1,13 @@
-﻿using Infrastructure.Contract;
+﻿using AutoMapper;
+using Infrastructure.Contract;
 using Infrastructure.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _MoviesStore.Controllers
 {
-
-    [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
+    [ApiController]
     public class MoviesController : ControllerBase
     {
         private readonly IMoviesInfrastructure _moviesInfrastructure;
