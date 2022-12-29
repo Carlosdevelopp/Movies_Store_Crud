@@ -118,6 +118,8 @@ namespace Infrastructure.Implementation
             movie.Description = movieDTO.DescriptionMovie;
             movie.Release = movieDTO.ReleaseMovie;
             movie.RunningTime = movieDTO.RunnigTimeMovie;
+            movie.GenreId = movieDTO.GenreId;
+            movie.AwardId = movieDTO.AwardId;
 
             _moviesDA.InsertMovie(movie);
         }
@@ -126,11 +128,14 @@ namespace Infrastructure.Implementation
         #region PUT
         public void UpdateMovie(MoviesUpdateDTO movieDTO)
         {
-            Movies movie = new();   
+            Movies movie = new();
+            movie.MovieId = movieDTO.MovieId;
             movie.Title = movieDTO.TitleMovie;
-            movie.Description = movieDTO.DescriptionMovie;  
-            movie.Release = movieDTO.ReleaseMovie;  
+            movie.Description = movieDTO.DescriptionMovie;
             movie.RunningTime = movieDTO.RunningTimeMovie;
+            movie.Release = movieDTO.ReleaseMovie;  
+            movie.GenreId = movieDTO.GenreId;
+            movie.AwardId = movieDTO.AwardId;
 
             _moviesDA.UpdateMovie(movie);
         }

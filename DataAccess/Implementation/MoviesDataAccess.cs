@@ -18,11 +18,11 @@ namespace DataAccess.Implementation
         //Get a record
         public Movies GetMovie(int movieId)
         {
-            Movies movies = (from m in _dbContext.Movies
+            Movies movie = (from m in _dbContext.Movies
                             where m.MovieId == movieId
                             select m).FirstOrDefault();
 
-            return movies;
+            return movie;
         }
 
         //Get all records

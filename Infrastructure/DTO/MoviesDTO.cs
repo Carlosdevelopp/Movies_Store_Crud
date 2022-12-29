@@ -6,6 +6,5 @@
         public string DescriptionMovie { get; set; } = string.Empty;
         public int RunningTimeMovie { get; set; }
         public DateTime ReleaseMovie { get; set; }   
-        public int GenreMovie { get; set; }   
     }
 }
