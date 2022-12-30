@@ -32,8 +32,7 @@ namespace _MoviesStore.Controllers
         ///       "titleMovie": "string",
         ///       "descriptionMovie": "string",
         ///       "runningTimeMovie": 0,
-        ///       "releaseMovie": datetime,
-        ///       "genreMovie": 0
+        ///       "releaseMovie": datetime
         ///     }
         ///
         /// </remarks>
@@ -64,8 +63,7 @@ namespace _MoviesStore.Controllers
         ///       "titleMovie": "string",
         ///       "descriptionMovie": "string",
         ///       "runningTimeMovie": 0,
-        ///       "releaseMovie": datetime,
-        ///       "genreMovie": 0
+        ///       "releaseMovie": datetime
         ///     }
         ///
         /// </remarks>
@@ -96,9 +94,10 @@ namespace _MoviesStore.Controllers
         ///     {  
         ///       "titleMovie": "string",
         ///       "descriptionMovie": "string",
-        ///       "runningTimeMovie": string,
         ///       "releaseMovie": "string",
-        ///       "genreMovie": string
+        ///       "runningTimeMovie": string,
+        ///       "genre": "string",
+        ///       "Award": "string"
         ///     }
         ///
         /// </remarks>
@@ -150,6 +149,7 @@ namespace _MoviesStore.Controllers
         }
         #endregion
 
+        #region POST
         /// <summary>
         /// Insert a record
         /// </summary>
@@ -163,12 +163,13 @@ namespace _MoviesStore.Controllers
         ///       "titleMovie": "string",
         ///       "descriptionMovie": "string",
         ///       "releaseShortMovie": 0,
-        ///       "runningTimeMovie": datetime
+        ///       "runningTimeMovie": "datetime",
+        ///       "GenreId": 0,
+        ///       "AwardId": 0
         ///     }
         ///
         /// </remarks>
         /// <returns></returns>
-        #region POST
         [HttpPost("InsertMovie")]
         public IActionResult InserMovie(MoviesInsertDTO movieDTO)
         {
@@ -184,6 +185,7 @@ namespace _MoviesStore.Controllers
         }
         #endregion
 
+        #region PUT
         /// <summary>
         /// Update a record
         /// </summary>
@@ -194,15 +196,17 @@ namespace _MoviesStore.Controllers
         ///
         ///     PUT /one
         ///     {
+        ///       "movieId": 0,
         ///       "titleMovie": "string",
         ///       "descriptionMovie": "string",
-        ///       "releaseShortMovie": 0,
-        ///       "runningTimeMovie": datetime
+        ///       "runningTimeMovie": 0,
+        ///       "releaseMovie": datetime,
+        ///       "GenreId": 0,
+        ///       "AwardId": 0
         ///     }
         ///
         /// </remarks>
         /// <returns></returns>
-        #region PUT
         [HttpPut("UpdateMovie")]
         public IActionResult UpdateMovie(MoviesUpdateDTO movieDTO)
         {
@@ -218,25 +222,13 @@ namespace _MoviesStore.Controllers
         }
         #endregion
 
+        #region DELETE
         /// <summary>
         /// Delete a record
         /// </summary>
         /// <response code="200">Succesfull operation and return movie object</response>
         /// <response code="400">An error ocurred on the server.</response>
-        /// <remarks>
-        /// Sample request:
-        ///
-        ///     DELETE /one
-        ///     {
-        ///       "titleMovie": "string",
-        ///       "descriptionMovie": "string",
-        ///       "releaseShortMovie": 0,
-        ///       "runningTimeMovie": datetime
-        ///     }
-        ///
-        /// </remarks>
         /// <returns></returns>
-        #region DELETE
         [HttpDelete("DeleteMovie")]
         public IActionResult DeleteMovie(int movieId)
         {

@@ -19,8 +19,7 @@
                    "titleMovie": "string",
                    "descriptionMovie": "string",
                    "runningTimeMovie": 0,
-                   "releaseMovie": datetime,
-                   "genreMovie": 0
+                   "releaseMovie": datetime
                  }
             
              </remarks>
@@ -40,8 +39,7 @@
                    "titleMovie": "string",
                    "descriptionMovie": "string",
                    "runningTimeMovie": 0,
-                   "releaseMovie": datetime,
-                   "genreMovie": 0
+                   "releaseMovie": datetime
                  }
             
              </remarks>
@@ -61,9 +59,10 @@
                  {  
                    "titleMovie": "string",
                    "descriptionMovie": "string",
-                   "runningTimeMovie": string,
                    "releaseMovie": "string",
-                   "genreMovie": string
+                   "runningTimeMovie": string,
+                   "genre": "string",
+                   "Award": "string"
                  }
             
              </remarks>
@@ -105,7 +104,9 @@
                    "titleMovie": "string",
                    "descriptionMovie": "string",
                    "releaseShortMovie": 0,
-                   "runningTimeMovie": datetime
+                   "runningTimeMovie": "datetime",
+                   "GenreId": 0,
+                   "AwardId": 0
                  }
             
              </remarks>
@@ -122,34 +123,25 @@
             
                  PUT /one
                  {
+                   "movieId": 0,
                    "titleMovie": "string",
                    "descriptionMovie": "string",
-                   "releaseShortMovie": 0,
-                   "runningTimeMovie": datetime
+                   "runningTimeMovie": 0,
+                   "releaseMovie": datetime,
+                   "GenreId": 0,
+                   "AwardId": 0
                  }
             
              </remarks>
              <returns></returns>
         </member>
         <member name="M:_MoviesStore.Controllers.MoviesController.DeleteMovie(System.Int32)">
-             <summary>
-             Delete a record
-             </summary>
-             <response code="200">Succesfull operation and return movie object</response>
-             <response code="400">An error ocurred on the server.</response>
-             <remarks>
-             Sample request:
-            
-                 DELETE /one
-                 {
-                   "titleMovie": "string",
-                   "descriptionMovie": "string",
-                   "releaseShortMovie": 0,
-                   "runningTimeMovie": datetime
-                 }
-            
-             </remarks>
-             <returns></returns>
+            <summary>
+            Delete a record
+            </summary>
+            <response code="200">Succesfull operation and return movie object</response>
+            <response code="400">An error ocurred on the server.</response>
+            <returns></returns>
         </member>
     </members>
 </doc>
